@@ -7,7 +7,7 @@ import {
   IconFileText,
   IconTool,
 } from "@tabler/icons-react"
-import { useState } from "react"
+import { memo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import ReactMarkdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight"
@@ -37,8 +37,7 @@ interface AssistantMessageProps {
   toolCalls?: ChatToolCall[]
   timestamp?: string | number
 }
-
-export function AssistantMessage({
+function AssistantMessageBase({
   content,
   attachments = [],
   kind = "normal",
@@ -301,3 +300,6 @@ export function AssistantMessage({
     </div>
   )
 }
+
+
+export const AssistantMessage = memo(AssistantMessageBase)
