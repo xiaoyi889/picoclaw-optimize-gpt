@@ -16,6 +16,7 @@ before:
 
 builds:
   - id: picoclaw
+    binary: picoclaw
     env:
       - CGO_ENABLED=0
     tags:
